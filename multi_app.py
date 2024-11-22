@@ -272,8 +272,8 @@ elif pagina == 'Ibai':
         st.dataframe(videos_data)
 
         # Visualización de estadísticas
-        st.subheader("Visualización - Videos ")
-        st.bar_chart(videos_data.set_index("Título del Video")[["Visualizaciones", "Videos"]])
+        st.subheader("Visualizaciones - Videos - Comentarios")
+        st.bar_chart(videos_data.set_index("Título del Video")[["Visualizaciones", "Comentarios"]])
 
         # DataFrame Completo 
         
@@ -377,8 +377,8 @@ elif pagina == 'AuronPlay':
         st.dataframe(videos_data)
 
         # Visualización de estadísticas
-        st.subheader("Visualizació")
-        st.bar_chart(videos_data.set_index("Título del Video")[["Videos", "Visualización"]])
+        st.subheader("Visualizaciones - Videos - Comentarios")
+        st.bar_chart(videos_data.set_index("Título del Video")[["Visualizaciones", "Comentarios"]])
 
         # DataFrame Completo 
         
