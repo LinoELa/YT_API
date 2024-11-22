@@ -252,7 +252,7 @@ elif pagina == 'Ibai':
         youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=API_KEY)
 
         # Obtener detalles del canal
-        st.subheader("Información Principal de Canal de Ibai")
+        #st.subheader("Información Principal de Canal de Ibai")
         channel_data = get_channel_details(youtube, channel_id)
         st.dataframe(channel_data)
 
@@ -272,8 +272,8 @@ elif pagina == 'Ibai':
         st.dataframe(videos_data)
 
         # Visualización de estadísticas
-        st.subheader("Visualización  - Comentaros ")
-        st.bar_chart(videos_data.set_index("Título del Video")[["Visualizaciones", "Comentarios"]])
+        st.subheader("Visualización - Videos ")
+        st.bar_chart(videos_data.set_index("Título del Video")[["Visualizaciones", "Videos"]])
 
         # DataFrame Completo 
         
@@ -359,7 +359,7 @@ elif pagina == 'AuronPlay':
         youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=API_KEY)
 
         # Obtener detalles del canal
-        st.subheader("Información Principal de Canal de AuronPlay")
+       #st.subheader("Información Principal de Canal de AuronPlay")
         channel_data = get_channel_details(youtube, channel_id)
         st.dataframe(channel_data)
 
@@ -377,8 +377,8 @@ elif pagina == 'AuronPlay':
         st.dataframe(videos_data)
 
         # Visualización de estadísticas
-        st.subheader("Visualización  - Comentaros ")
-        st.bar_chart(videos_data.set_index("Título del Video")[["Visualizaciones", "Comentarios"]])
+        st.subheader("Visualizació")
+        st.bar_chart(videos_data.set_index("Título del Video")[["Videos", "Visualización"]])
 
         # DataFrame Completo 
         
