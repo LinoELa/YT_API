@@ -383,4 +383,4 @@ elif pagina == 'AuronPlay':
 
 # Error 
 st.subheader("", divider=True)
-st.subheader("* NOTA * *En caso de error, seria por haber alcanzado el limite diario de solicitudes a API de YouTube, que son :  10.000/dia*", divider=True)
+st.subheader("* NOTA * *En caso de error, seria por haber alcanzado el limite diario de solicitudes a la API de YouTube, que son :  10.000/dia*", divider=True)
