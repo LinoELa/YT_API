@@ -30,15 +30,12 @@ pagina = st.sidebar.selectbox("Canal : Ibai - AuronPlay - Paulino ",["Paulino", 
 
 # ---------------------PAULINO------------------------
 def stream_lino():
-     # Set page config
-    # st.set_page_config(page_title="Streamlit YouTube Channel Dashboard", layout="wide")
+
 
     def load_data():
         data = pd.read_csv("./YTEla.csv")
 
         # ----------------------
-
-        # data['DATE'] = data['DATE'].dt.strftime('%d-%m-%Y')
 
         data['DATE'] = pd.to_datetime(data['DATE'])
 
@@ -53,10 +50,9 @@ def stream_lino():
 
     df = load_data()
 
-    # Original
+
     df1 = df[['DATE', 'NET_SUBSCRIBERS', 'VIEWS', 'WATCH_HOURS', 'LIKES']]
 
-    # Calculate row-wise Acumulado sum
     df2 = df1.copy()
 
     for column in ['NET_SUBSCRIBERS', 'VIEWS', 'WATCH_HOURS', 'LIKES']:
@@ -81,7 +77,7 @@ def stream_lino():
         )
 
 
-    # Titulo - Display key metrics (Total) 
+
     st.subheader(":blue[YT Paulino Salvador E.]")
 
     st.caption("Estadísticas de todos los tiempos")
@@ -121,18 +117,6 @@ def stream_lino():
             if time_frame == 'Acumulado':
                 df_views = df2[["DATE", "LIKES"]].set_index(df2.columns[0])
                 st.area_chart(df_views, color='#7D44CF', height=150)
-
-    # with col[3]:
-    #     with st.container(border=True):
-    #         st.metric("Tiempo total futuro de visualización", format_with_commas((df['WATCH_HOURS'].sum())))
-
-    #         if time_frame == 'Diario':
-    #             df_views = df1[["DATE", "WATCH_HOURS"]].set_index(df1.columns[0])
-    #             st.area_chart(df_views, color='#D45B90', height=150)
-
-    #         if time_frame == 'Acumulado':
-    #             df_views = df2[["DATE", "WATCH_HOURS"]].set_index(df2.columns[0])
-    #             st.area_chart(df_views, color='#D45B90', height=150)
 
     
 
@@ -186,7 +170,7 @@ elif pagina == 'Ibai':
 
     def ibai_streamlit():
         # Configuración de la API de YouTube
-        API_KEY = "AIzaSyDvZHKzCxTayMVbJzAsPuzfyvyZdxTSPEc"  # Reemplaza con tu clave de la API de YouTube
+        API_KEY = "AIzaSyDvZHKzCxTayMVbJzAsPuzfyvyZdxTSPEc"  
         YOUTUBE_API_SERVICE_NAME = "youtube"
         YOUTUBE_API_VERSION = "v3"
 
@@ -265,7 +249,7 @@ elif pagina == 'Ibai':
         playlist_id = response["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
 
         # Obtener datos de videos recientes
-        st.subheader("Info 10 Videos mas Recientes de AuronPlay")
+        st.subheader("Los 10 Videos más Recientes de Ibai")
 
 
         videos_data = get_videos(youtube, playlist_id)
@@ -291,7 +275,7 @@ elif pagina == 'AuronPlay':
 
     def auron_streamlit():
         # Configuración de la API de YouTube
-        API_KEY = "AIzaSyDvZHKzCxTayMVbJzAsPuzfyvyZdxTSPEc"  # Reemplaza con tu clave de la API de YouTube
+        API_KEY = "AIzaSyDvZHKzCxTayMVbJzAsPuzfyvyZdxTSPEc"  
         YOUTUBE_API_SERVICE_NAME = "youtube"
         YOUTUBE_API_VERSION = "v3"
 
@@ -358,8 +342,7 @@ elif pagina == 'AuronPlay':
 
         youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION, developerKey=API_KEY)
 
-        # Obtener detalles del canal
-       #st.subheader("Información Principal de Canal de AuronPlay")
+
         channel_data = get_channel_details(youtube, channel_id)
         st.dataframe(channel_data)
 
@@ -372,7 +355,7 @@ elif pagina == 'AuronPlay':
         playlist_id = response["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
 
         # Obtener datos de videos recientes
-        st.subheader("Info 10 Videos mas Recientes de AuronPlay")
+        st.subheader("Los 10 Videos más Recientes de AuronPlay")
         videos_data = get_videos(youtube, playlist_id)
         st.dataframe(videos_data)
 
